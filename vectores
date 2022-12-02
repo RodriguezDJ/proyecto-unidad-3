@@ -1,0 +1,268 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace vectores
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+
+        {
+            Console.WriteLine("escribe 1 para intercambiar los elememtos de un verctor");
+            Console.WriteLine("escribe 2 para seber si esta de mayor a menor");
+            Console.WriteLine("escribe 3 para saber si el orden es creciente ");
+            Console.WriteLine("esbribe 4 para saber si son repetidos");
+            Console.WriteLine("escribe 5 para saber si esta ordfenarde menor a mayor");
+            Console.WriteLine(" escribe 6 para saber si esta en la lista");
+            Console.WriteLine("escribe 7 hayar el promedio");
+            Console.WriteLine(" salir ");
+            float vec = float.Parse(Console.ReadLine());
+            Console.Clear();
+            switch (vec)
+            {
+                case 1:
+                    Console.WriteLine("tamaño del vector");
+                    int t = Convert.ToInt32(Console.ReadLine());
+                    int[] vector = new int[t];
+                    for (int i = 0; i < t; i++)
+                       
+                    {
+                        Console.WriteLine("Ingrese numeros de vector");
+                        vector[i] = Convert.ToInt32(Console.ReadLine());
+                    }
+                    Console.WriteLine("El vector es: ");
+                    for (int i = 0; i < t; i++)
+                    {
+                        Console.Write(vector[i] + " ");
+                    }
+                    Console.WriteLine("\nEl vector invertido es: ");
+                    for (int i = t - 1; i >= 0; i--)
+                    {
+                        Console.Write(vector[i] + " ");
+                    }
+                    Console.ReadKey();
+
+                    break;
+                case 2:
+
+                    Console.WriteLine("Tamaño de la lista");
+                    int tam = Convert.ToInt32(Console.ReadLine());
+                    int[] v = new int[tam];
+                    for (int i = 0; i < tam; i++)
+                    {
+                        Console.WriteLine("Ingrese un numero");
+                        v[i] = Convert.ToInt32(Console.ReadLine());
+                    }
+
+                    int cont = 0;
+                    for (int i = 0; i < tam - 1; i++)
+                    {
+                        if (v[i] <= v[i + 1])
+                        {
+                            cont++;
+                        }
+                    }
+                    Console.Clear();
+                    Console.WriteLine("La lista de numeros ingresada es: ");
+                    for (int i = 0; i < tam; i++)
+                    {
+                        Console.Write(v[i] + " ");
+                    }
+                    if (cont == tam - 1)
+                    {
+                        Console.WriteLine("\nEsta ordenado de menor a mayor");
+                    }
+                    else
+                    {
+                        Console.WriteLine("\nNO esta ordenado de menor a mayor");
+                    }
+                    Console.ReadKey();
+                    break;
+                case 3:
+                    Console.WriteLine("Ingrese el tamaño de la lista");
+                    int us = Convert.ToInt32(Console.ReadLine());
+                    int[] li = new int[us];
+                    for (int i = 0; i < us; i++)
+                    {
+                        Console.WriteLine("Ingrese un numero");
+                        li[i] = Convert.ToInt32(Console.ReadLine());
+                    }
+                    int conta = 0;
+                    for (int i = 0; i < us - 1; i++)
+                    {
+                        if (li[i] < li[i + 1])
+                        {
+                            conta++;
+                        }
+                    }
+                    Console.Clear();
+                    Console.WriteLine("La lista es: ");
+                    for (int i = 0; i < us; i++)
+                    {
+                        Console.Write(li[i] + " ");
+                    }
+                    if (conta == us - 1)
+                    {
+                        Console.WriteLine("\nLa lista esta ordenado de manera creciente");
+                    }
+                    else
+                    {
+                        Console.WriteLine("\nLa lista no esta ordenado de manera creciente");
+                    }
+                    Console.ReadKey();
+                    break;
+                case 4:
+                 Console.WriteLine("Ingrese el tamaño de la lista");
+            int gr = Convert.ToInt32(Console.ReadLine());
+            int[] vc = new int[gr];
+            for (int i = 0; i < gr; i++)
+            {
+                Console.WriteLine("Ingrese un numero");
+                vc[i] = Convert.ToInt32(Console.ReadLine());
+            }
+            int con = 0;
+            for (int i = 0; i < gr - 1; i++)
+            {
+                for (int j = i + 1; j < gr; j++)
+                {
+                    if (vc[i] == vc[j])
+                    {
+                        con++;
+                    }
+                }
+            }
+            Console.Clear();
+            Console.WriteLine("La lista de numeros ingresada es: ");
+            for (int i = 0; i < gr; i++)
+            {
+                Console.Write(vc[i] + " ");
+            }
+                    Console.Clear();
+            if (con > 0)
+            {
+                Console.WriteLine("\nNUmeros repetidos: ");
+                for (int i = 0; i < gr - 1; i++)
+                {
+                    for (int j = i + 1; j < gr; j++)
+                    {
+                                if (vc[i] == vc[j])
+                                {
+                                    Console.Write(vc[i] + " ");
+                        }
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("\nNo tiene repetidos");
+            }
+
+                    Console.ReadKey();
+                    break;
+                case 5:
+        
+                    Console.WriteLine("Tamaño de la lista");
+                    int tm = Convert.ToInt32(Console.ReadLine());
+        int[] vct = new int[tm];
+                    for (int i = 0; i<tm; i++)
+                    {
+                        Console.WriteLine("Ingrese un numero");
+                        vct[i] = Convert.ToInt32(Console.ReadLine());
+                    }
+                    Console.Clear();
+    int aux;
+                    for (int i = 0; i<tm - 1; i++)
+                    {
+                        for (int j = i + 1; j<tm; j++)
+                        {
+                            if (vct[i] > vct[j])
+                            {
+                                aux = vct[i];
+                                vct[i] = vct[j];
+                                vct[j] = aux;
+                            }
+                        }
+                    }
+                    Console.WriteLine("\nLa lista ordenada de menor a mayor es: ");
+                    for (int i = 0; i < tm; i++)
+          {
+                       Console.Write(vct[i] + " ");
+}
+                    Console.ReadKey();
+
+break;
+                case 6:
+                    Console.WriteLine("Tamaño de la lista");
+                    int tmo = Convert.ToInt32(Console.ReadLine());
+                    int[] vctr = new int[tmo];
+                    for (int i = 0; i < tmo; i++)
+                        
+                    {
+                        Console.WriteLine("Ingrese un numero");
+                        vctr[i] = Convert.ToInt32(Console.ReadLine());
+                    }
+                    Console.WriteLine("Ingrese el numero que desea buscar");
+                    int num = Convert.ToInt32(Console.ReadLine());
+                    int contr = 0;
+                    for (int i = 0; i < tmo; i++)
+                    {
+                        if (vctr[i] == num)
+                        {
+                            contr++;
+                        }
+                    }
+                    Console.Clear();
+                    Console.WriteLine("La lista de numeros: ");
+                    for (int i = 0; i < tmo; i++)
+                    {
+                        Console.Write(vctr[i] + " ");
+                    }
+                    if (contr > 0)
+                    {
+                        Console.WriteLine("\nEl numero " + num + " si se encuentra en la lista y se repite " + contr + " veces");
+                    }
+                    else
+                    {
+                        Console.WriteLine("\nEl numero " + num + " no se encuentra en la lista");
+                    }
+                    break;
+                case 7:
+
+                    Console.WriteLine("Ingrese el tamaño del vector");
+                    int tama = Convert.ToInt32(Console.ReadLine());
+                    int[] vr = new int[tama];
+                    for (int i = 0; i < tama; i++)
+                    {
+                        Console.WriteLine("Ingrese un numero");
+                        vr[i] = Convert.ToInt32(Console.ReadLine());
+                    }
+                   
+                    int suma = 0;
+                    for (int i = 0; i < tama; i++)
+                    {
+                        suma = suma + vr[i];
+                    }
+                    int promedio = suma / tama;
+                    Console.Clear();
+                    Console.WriteLine("La lista de numeros ingresada es: ");
+                    for (int i = 0; i < tama; i++)
+                    {
+                        Console.Write(vr[i] + " ");
+                    }
+                    Console.WriteLine("\nEl promedio de los numeros ingresados es: " + promedio);
+                    Console.ReadKey();
+                    break;
+            
+                default:
+                    Console.WriteLine("gracias por iniciar, :D ");
+                    break;
+
+
+            }
+            
+        }
+    }
+}
